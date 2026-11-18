@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0507">
+  <title>Casino Stars</title>
+  <meta name="description" content="Casino Stars: póker Texas Hold'em, blackjack y baccarat en tres locales — del bar de mala muerte a Las Vegas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Monoton&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/menus.css">
+</head>
+<body>
+  <div id="viewport">
+    <div id="stage">
+      <div id="bg" class="bg"></div>
+      <svg id="rigUnder" class="rig-layer" viewBox="0 0 1600 900"></svg>
+      <div id="table" class="table-layer"></div>
+      <div id="objects" class="objects-layer"></div>
+      <svg id="rigOver" class="rig-layer" viewBox="0 0 1600 900"></svg>
+      <div id="labels" class="labels-layer"></div>
+      <div id="hud"></div>
+      <div id="actions"></div>
+      <div id="menus" class="menus"></div>
+      <div id="overlay"></div>
+    </div>
+  </div>
+  <div id="rotate-hint">Gira el móvil en horizontal para jugar mejor ↻</div>
+  <div id="loader"><div class="ld-star">★</div></div>
+
+  <script src="js/util.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/chips.js"></script>
+  <script src="js/venues.js"></script>
+  <script src="js/rig.js"></script>
+  <script src="js/shuffle.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/tutorial.js"></script>
+  <script src="js/games/pokereval.js"></script>
+  <script src="js/games/blackjack.js"></script>
+  <script src="js/games/baccarat.js"></script>
+  <script src="js/games/poker.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
