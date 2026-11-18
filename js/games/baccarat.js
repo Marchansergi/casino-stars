@@ -253,6 +253,8 @@
           if (st.amount <= 0) return;
           const m = this.payout(z.id, res, bTotal);
           const amt = st.amount;
+          const who = this.s.npcs.find((n) => !!n.place.flip === !!k);
+          if (who) who.react(m > 0 ? 'happy' : m < 0 ? 'sad' : 'think');
           const dest = { x: k ? 1360 : 240, y: 760 };
           jobs.push((async () => {
             if (m < 0) { st.set(0); await Chips.fly(o, st, this.tray, amt, v.chip, v.denoms, { stagger: 25 }); return; }

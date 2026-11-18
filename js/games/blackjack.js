@@ -372,6 +372,7 @@
       if (handValue(h.cards).total > 21) {
         this.label(h, 'SE PASA', 'bust');
         CS.Audio.play('lose');
+        if (st.npc) st.npc.react('sad');
         await this.loseChips(h);
       }
       if (st.kind === 'human') this.highlight(st, hi, false);
@@ -502,6 +503,7 @@
       }
       await Promise.all(jobs);
       // mensaje para el jugador
+      this.s.dealer.react(humanNet > 0 ? 'sad' : humanNet < 0 ? 'happy' : 'think');
       if (humanNet > 0) { CS.Audio.play(humanNet >= humanBet * 1.5 ? 'bigwin' : 'win'); UI.toast(`Ganas ${U.fmt(humanNet)}`, 'win', 1300); }
       else if (humanNet < 0) { UI.toast(`Pierdes ${U.fmt(-humanNet)}`, 'lose', 1100); }
       else UI.toast('Empate', 'info', 900);
@@ -511,6 +513,7 @@
     async payHand(st, h, mult) {
       const v = this.v, p = h.stack;
       const res = mult > 0 ? (mult === 1.5 ? 'GANA 3:2' : 'GANA') : mult === 0 ? 'EMPATE' : 'PIERDE';
+      if (st.npc) st.npc.react(mult > 0 ? 'happy' : mult < 0 ? 'sad' : 'think');
       this.label(h, res, mult > 0 ? 'win' : mult === 0 ? 'push' : 'lose');
       if (mult < 0) return this.loseChips(h);
       const dest = st.kind === 'human' ? { x: 800, y: 920 } : { x: p.x + (p.x < 800 ? -130 : 130), y: p.y + 60 };

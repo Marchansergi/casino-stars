@@ -225,6 +225,9 @@
 
 /* ================= PERSONAJES ================= */
 .npc, .dealer-arms, .dealer-body { transition: opacity .6s; }
+.eyes-g { transform-box: fill-box; transform-origin: 50% 50%; transition: transform .05s; }
+.eyes-g.blink { transform: scaleY(.08); }
+.brows-g { transition: transform .2s; }
 .hand .finger { transform-box: fill-box; transform-origin: 0% 50%; }
 .hand.tapping .finger { animation: tap .36s ease-in-out infinite; }
 .hand.tapping .f1 { animation-delay: .09s; } .hand.tapping .f2 { animation-delay: .18s; } .hand.tapping .f3 { animation-delay: .27s; }

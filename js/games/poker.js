@@ -427,6 +427,7 @@
       const dest = w.isHuman ? { x: 800, y: 900 } : SLOTS[w.slot].bet;
       await Chips.fly(this.s.objects, POT, dest, amt, this.v.chip, this.v.denoms, { stagger: 30 });
       w.chips += amt;
+      if (w.npc) w.npc.react('happy');
       this.renderPlate(w, `Gana ${U.fmt(amt)}`);
       if (w.isHuman) { CS.Audio.play('win'); await UI.toast(`Ganas ${U.fmt(amt)}`, 'win', 1200, 'Todos se han retirado'); }
       else await UI.toast(`${w.name} gana ${U.fmt(amt)}`, 'info', 1100, 'Todos se han retirado');
@@ -439,6 +440,7 @@
       for (const p of live) {
         if (!p.isHuman) await Promise.all(p.holeEls.map((el) => Cards.flip(el, true, 320)));
         p.res = E.best(p.hole.concat(this.board));
+        if (p.npc) p.npc.react('think');
         this.renderPlate(p, p.res.name);
         await U.sleep(250);
       }
@@ -474,6 +476,7 @@
           await Chips.fly(this.s.objects, POT, dest, a, this.v.chip, this.v.denoms, { stagger: 25 });
           w.chips += a;
           if (w.isHuman) humanWon += a;
+          if (w.npc) w.npc.react('happy');
           this.renderPlate(w, `Gana ${U.fmt(a)}`);
         }
         msgs.push(ws.length > 1 ? `Bote repartido · ${ws[0].res.name}` : `${ws[0].isHuman ? 'Ganas' : ws[0].name + ' gana'} con ${ws[0].res.name}`);

@@ -88,6 +88,7 @@
     ['rigUnder', 'rigOver'].forEach((id) => { $(id).innerHTML = ''; });
     $('objects').innerHTML = ''; $('labels').innerHTML = ''; $('hud').innerHTML = ''; $('actions').innerHTML = '';
     CS.Venues.buildBackground($('bg'), venueId);
+    CS.Rig.rim = CS.Rig.RIM[venueId];
     const geo = CS.Venues.buildTable($('table'), game, venue);
     const dealer = new CS.Rig.Dealer($('rigUnder'), $('rigOver'), CS.Rig.DEALERS[venueId], 800, geo.dealerTop);
 
